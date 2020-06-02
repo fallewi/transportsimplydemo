@@ -1,0 +1,16 @@
+<odoo>
+	<data>
+		<record id="inherit_wk_booking_order_form" model="ir.ui.view">
+			<field name="name">Booking Order Form</field>
+            <field name="model">sale.order</field>
+            <field name="mode">primary</field>
+            <field name="priority" eval="50"/>
+            <field name="inherit_id" ref="website_booking_system.wk_booking_order_form"/>
+            <field name="arch" type="xml">
+            	<field name="field[name='payment_term_id']" position="after">
+                    <field name="is_booking_type" invisible="1"/>
+                </field>
+            </field>
+		</record>
+	</data>
+</odoo>
