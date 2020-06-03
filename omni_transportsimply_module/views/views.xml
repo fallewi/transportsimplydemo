@@ -1,16 +1,42 @@
 <odoo>
-	<data>
-		<!-- <record id="inherit_wk_booking_order_form" model="ir.ui.view">
-			<field name="name">Booking Order Form</field>
+    <data>
+        <record id="inherit_wk_booking_order_form" model="ir.ui.view">
+            <field name="name">Booking Order Form extended</field>
             <field name="model">sale.order</field>
-            <field name="mode">primary</field>
-            <field name="priority" eval="50"/>
-            <field name="inherit_id" ref="website_booking_system.wk_booking_order_form"/>
+            <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-            	<field name="field[name='payment_term_id']" position="after">
-                    <field name="is_booking_type" invisible="1"/>
+                <field name="partner_shipping_id" position="after">
+                    <field name="destination_address_id" />
+                </field>
+                <field name="partner_shipping_id" position="attributes">
+                    <attribute name="string">Pick Up Address</attribute>
+                </field>
+                <field name="payment_term_id" position="after">
+                    <field name="to_date" />
+                </field>
+                <field name="to_date" position="after">
+                    <field name="from_date" />
+                </field>
+                <field name="to_date" position="after">
+                    <field name="booker_id" />
+                </field>
+                <field name="sale_order_template_id" position="replace">
+                    <field name="passengers_list" />
                 </field>
             </field>
-		</record> -->
-	</data>
+        </record>
+        <record id="inherit_wk_booking_order_line_form" model="ir.ui.view">
+            <field name="name">Booking Order Form line extended</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="website_booking_system.wk_booking_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']//tree//field[@name='booking_date']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']//tree//field[@name='booking_slot_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
 </odoo>
