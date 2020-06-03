@@ -25,6 +25,8 @@
                 </field>
             </field>
         </record>
+
+
         <record id="inherit_wk_booking_order_line_form" model="ir.ui.view">
             <field name="name">Booking Order Form line extended</field>
             <field name="model">sale.order</field>
@@ -36,6 +38,18 @@
                 <xpath expr="//field[@name='order_line']//tree//field[@name='booking_slot_id']" position="attributes">
                     <attribute name="invisible">1</attribute>
                 </xpath>
+            </field>
+        </record>
+
+
+        <record id="product_template_only_form_view_extended" model="ir.ui.view">
+            <field name="name">Product Template extended</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <field name="accessory_product_ids" position="attributes">
+                    <attribute name="string">Features/Amenities</attribute>
+                </field>
             </field>
         </record>
     </data>
