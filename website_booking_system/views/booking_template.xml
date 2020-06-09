@@ -81,9 +81,9 @@
 
         <!-- Booking and reservation sub div slots n plans -->
         <template id="booking_modal_bk_slots_n_plans_div">
-            <div class="row bk_border bk_modal_slots">
+            <!-- <div class="row bk_border bk_modal_slots">
                 <t t-call="website_booking_system.booking_modal_bk_day_slots"/>
-            </div>
+            </div> -->
             <div class="row bk_model_plans" style="margin: 0 15px;">
                 <t t-if="day_slots" t-call="website_booking_system.booking_sel_plans">
                     <t t-set="d_plans" t-value="day_slots[0]['plans']"/>
@@ -179,7 +179,7 @@
                                         <span class="bk_modal_err"/>
                                     </div>
                                     <div class="row" style="padding: 0 15px;">
-                                        <span class="btn btn-primary btn-lg bk_model_booking bk-submit">Book Now</span>
+                                        <span class="btn btn-primary bk_model_booking bk-submit">Book Now</span>
                                     </div>
                                 </div>
                             </div>
